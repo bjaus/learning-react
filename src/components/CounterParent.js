@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 
 import Counter from './Counter';
+import PlusButton from './PlusButton';
+import MinusButton from './MinusButton';
+import ResetButton from './ResetButton';
 
 class CounterParent extends Component {
 
@@ -18,7 +21,6 @@ class CounterParent extends Component {
 
   increase(e) {
     let currentCount = this.state.count;
-
     if ( e.shiftKey && e.altKey ) {
       currentCount += 100;
     } else if ( e.shiftKey ) {
@@ -26,7 +28,6 @@ class CounterParent extends Component {
     } else {
       currentCount += 1;
     }
-    
     this.setState({
       count: currentCount
     });
@@ -34,7 +35,6 @@ class CounterParent extends Component {
 
   decrease(e) {
     let currentCount = this.state.count;
-
     if ( e.shiftKey && e.altKey ) {
       currentCount -= 100;
     } else if ( e.shiftKey ) {
@@ -42,7 +42,6 @@ class CounterParent extends Component {
     } else {
       currentCount -= 1;
     }
-
     this.setState({
       count: currentCount
     });
@@ -65,33 +64,14 @@ class CounterParent extends Component {
       textAlign: 'center'
     };
 
-    const buttonStyle = {
-      margin: 2,
-      fontSize: '1em',
-      width: 30,
-      height: 30,
-      fontFamily: 'sans-serif',
-      color: '#333',
-      fontWeight: 'bold',
-      lineHeight: '3px'
-    };
-
-    const resetButtonStyle = {
-      ...buttonStyle,
-      width: 65,
-      fontSize: 20,
-     };
-
     return (
       <div style={ backgroundStyle }>
         <Counter display={ this.state.count } />
         <div>
-          <button onClick={ this.decrease } style={ buttonStyle }>-</button>
-          <button onClick={ this.increase } style={ buttonStyle }>+</button>
+          <MinusButton clickEvent={ this.decrease } />
+          <PlusButton clickEvent={ this.increase } />
         </div>
-        <div>
-        <button onClick={ this.reset } style={ resetButtonStyle }>reset</button>
-        </div>
+        <ResetButton clickEvent={ this.reset } />
       </div>
     );
   }
