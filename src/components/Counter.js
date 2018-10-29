@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 
-import Square from './Square';
-import Label from './Label';
-
 class Counter extends Component {
   render() {
     const textStyle = {
