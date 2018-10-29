@@ -5,14 +5,13 @@ class PlusButton extends Component {
 
     const buttonStyle = {
       margin: 2,
-      fontSize: '1em',
+      fontSize: 20,
       width: 65,
       height: 30,
       fontFamily: 'sans-serif',
       color: '#333',
       fontWeight: 'bold',
       lineHeight: '3px',
-      fontSize: 20
     };
 
     return (
