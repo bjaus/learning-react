@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import CounterParent from './components/CounterParent';
+import Colorizer from './components/Colorizer';
 
 class App extends Component {
   render() {
@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <CounterParent /> 
+          <Colorizer /> 
         </div>
       </div>
     );
