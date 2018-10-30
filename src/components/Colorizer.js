@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 
 import './Colorizer.css';
 
+//import ColorLabel from './ColorLabel';
+
 class Colorizer extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       color: '',
-      bgColor: 'white'
+      bgColor: 'blue'
     };
 
     this.colorValue = this.colorValue.bind(this);
@@ -25,6 +27,11 @@ class Colorizer extends Component {
     this.setState({
       bgColor: this.state.color
     });
+
+    this.input.focus();
+    this.input.value = '';
+
+    e.preventDefault();
   }
 
   render() {
@@ -33,15 +40,21 @@ class Colorizer extends Component {
       backgroundColor: this.state.bgColor
     };
 
+//    const self = this;
+
     return (
       <div className="colorArea">
         <div style={ squareStyle } className="colorSquare"></div>
 
         <form onSubmit={ this.setNewColor }>
-          <input onChange={ this.colorValue } placeholder='Enter a color value'></input>
+          <input 
+            onChange={ this.colorValue } 
+            placeholder='Enter a color value'
+            ref={ element => this.input = element }
+          ></input>
           <button type='submit'>go</button>
         </form>
-      </div>
+      /div>
     );
   }
 }
