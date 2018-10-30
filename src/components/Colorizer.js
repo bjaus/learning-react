@@ -13,8 +13,8 @@ class Colorizer extends Component {
       bgColor: 'blue'
     };
 
-    this.colorValue = this.colorValue.bind(this);
-    this.setNewColor = this.setNewColor.bind(this);
+//    this.colorValue = this.colorValue.bind(this);
+//    this.setNewColor = this.setNewColor.bind(this);
   }
 
   colorValue(e) {
@@ -40,21 +40,17 @@ class Colorizer extends Component {
       backgroundColor: this.state.bgColor
     };
 
-//    const self = this;
-
     return (
       <div className="colorArea">
         <div style={ squareStyle } className="colorSquare"></div>
-
-        <form onSubmit={ this.setNewColor }>
+        <form onSubmit={ (e) => this.setNewColor(e) }>
           <input 
-            onChange={ this.colorValue } 
+            onChange={ (e) => this.colorValue(e) } 
             placeholder='Enter a color value'
-            ref={ element => this.input = element }
-          ></input>
+            ref={ (element) => this.input = element }></input>
           <button type='submit'>go</button>
         </form>
-      /div>
+      </div>
     );
   }
 }
